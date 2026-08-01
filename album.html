@@ -91,7 +91,27 @@
         #galeria img:hover{
             transform:scale(1.03);
         }
+#acciones{
+    position:absolute;
+    bottom:30px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
 
+#descargar{
+    background:#566b5f;
+    color:white;
+    padding:14px 28px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.2s;
+}
+
+#descargar:hover{
+    background:#435348;
+}
     </style>
 
 </head>
@@ -105,6 +125,14 @@
     <span id="cerrar">✕</span>
 
     <img id="imagenGrande">
+
+    <div id="acciones">
+
+        <a id="descargar" download>
+            ⬇ Descargar
+        </a>
+
+    </div>
 
 </div>
 
