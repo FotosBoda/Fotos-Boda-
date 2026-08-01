@@ -2,7 +2,8 @@ const SUPABASE_URL = "https://vizujiwztwdydalzjben.supabase.co";
 const SUPABASE_KEY = "sb_publishable_YDn4e0TJNmKGF1FugH5ROA_IYIvDeEP";
 
 const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
+let modoSeleccion = false;
+let fotosSeleccionadas = [];
 async function cargarFotos(){
 
     const { data, error } = await cliente.storage
@@ -64,6 +65,27 @@ img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
 
 cargarFotos();
 setInterval(cargarFotos, 10000);
+document.getElementById("modoSeleccion").onclick = () => {
+
+    modoSeleccion = !modoSeleccion;
+
+    fotosSeleccionadas = [];
+
+    if(modoSeleccion){
+
+        document.getElementById("modoSeleccion").textContent =
+        "❌ Cancelar selección";
+
+    }else{
+
+        document.getElementById("modoSeleccion").textContent =
+        "☑ Seleccionar fotos";
+
+    }
+
+    cargarFotos();
+
+};
 document.getElementById("cerrar").onclick = () => {
 
     document.getElementById("visor").classList.add("oculto");
