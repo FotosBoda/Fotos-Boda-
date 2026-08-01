@@ -68,6 +68,29 @@ if(modoSeleccion){
 
     marca.textContent = "○";
 
+    marca.onclick = (e) => {
+
+        e.stopPropagation();
+
+        if(fotosSeleccionadas.includes(foto.name)){
+
+            fotosSeleccionadas =
+                fotosSeleccionadas.filter(f=>f!==foto.name);
+
+            marca.textContent="○";
+            marca.classList.remove("seleccionada");
+
+        }else{
+
+            fotosSeleccionadas.push(foto.name);
+
+            marca.textContent="✓";
+            marca.classList.add("seleccionada");
+
+        }
+
+    };
+
     contenedor.appendChild(marca);
 
 }
