@@ -17,7 +17,7 @@ async function cargarFotos(){
     const galeria = document.getElementById("galeria");
 const contador = document.getElementById("contador");
     galeria.innerHTML="";
-
+contador.textContent = `📷 ${data.length} fotos compartidas`;
     data.forEach(foto=>{
 
         const { data:url } = cliente.storage
