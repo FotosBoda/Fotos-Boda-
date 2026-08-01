@@ -245,5 +245,41 @@ h3{
         padding:35px 22px;
 
     }
+/* Últimos momentos */
 
+#ultimasFotos{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:10px;
+
+    margin-bottom:35px;
+
+}
+
+#ultimasFotos img{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    transition:.25s;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+
+}
+
+#ultimasFotos img:hover{
+
+    transform:scale(1.05);
+
+}
 }
