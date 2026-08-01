@@ -1,23 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbum - Ángel & Silvia</title>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<title>Álbum</title>
+    <style>
 
-<link rel="stylesheet" href="style.css">
+        body{
+            margin:0;
+            font-family:Arial,sans-serif;
+            background:#f6f6f2;
+        }
+
+        h1{
+            text-align:center;
+            color:#566b5f;
+            margin:30px 0;
+        }
+
+        #galeria{
+            display:grid;
+            grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+            gap:20px;
+            padding:20px;
+        }
+
+        #galeria a{
+            display:block;
+        }
+
+        #galeria img{
+            width:100%;
+            border-radius:12px;
+            cursor:pointer;
+            transition:.2s;
+        }
+
+        #galeria img:hover{
+            transform:scale(1.03);
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-<h1>📷 Álbum de la boda</h1>
+<h1>📸 Álbum de la boda</h1>
 
 <div id="galeria"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="album.js"></script>
 
 </body>
