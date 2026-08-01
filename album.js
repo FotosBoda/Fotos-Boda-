@@ -49,6 +49,7 @@ botonDescargar.onclick = async () => {
 
     URL.revokeObjectURL(enlace.href);
 };
+};    
     
 img.src = url.publicUrl;
 img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
