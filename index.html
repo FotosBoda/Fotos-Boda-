@@ -1,71 +1,203 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Ángel & Silvia</title>
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#566b5f">
+
+    <meta name="description"
+        content="Comparte los mejores momentos de la boda de Ángel y Silvia.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="contenedor">
+    <!-- Decoración de fondo -->
 
-<h1>Ángel & Silvia</h1>
+    <div class="decoracion">
 
-<p class="fecha">26 de septiembre de 2026</p>
+        <div class="patita p1">🐾</div>
+        <div class="patita p2">🐾</div>
+        <div class="patita p3">🐾</div>
+        <div class="patita p4">🐾</div>
 
-<p class="bienvenida">
-    Gracias por formar parte de uno de los días más felices de nuestra vida.
-    <br><br>
-    Cada fotografía que compartas nos ayudará a revivir este momento para siempre. ❤️
-</p>
+        <div class="hoja h1"></div>
+        <div class="hoja h2"></div>
 
-<div class="tarjetaContador">
-
-   <div class="numeroMomentos" id="numeroMomentos">
-    0
-</div>
-
-    <div class="textoMomentos">
-        Momentos compartidos
     </div>
 
-</div>
+    <!-- Tarjeta principal -->
 
-<button id="subirFotos">
-    📸 Compartir un momento
-</button>
+    <main class="contenedor">
 
-<button id="verAlbum">
-    🖼️ Explorar recuerdos
-</button>
+        <header>
 
-<h3>Últimos momentos</h3>
+            <h1>Ángel & Silvia</h1>
 
-<div id="ultimasFotos">
+            <p class="fecha">
 
-</div>
+                26 de septiembre de 2026
 
-<div class="footer">
+            </p>
 
-    Con mucho cariño,
+        </header>
 
-    <br><br>
+        <section class="bienvenida">
 
-    Ángel & Silvia ❤️
+            <p>
 
-</div>
+                Gracias por formar parte de uno de los días más felices
+                de nuestra vida.
 
-</div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js"></script>
+            </p>
+
+            <br>
+
+            <p>
+
+                Cada fotografía que compartas nos ayudará
+                a revivir este momento para siempre. ❤️
+
+            </p>
+
+        </section>
+
+        <!-- Tarjeta contador -->
+
+        <section class="tarjetaContador">
+
+            <div class="numeroMomentos"
+                id="numeroMomentos">
+
+                0
+
+            </div>
+
+            <div class="textoMomentos">
+
+                Momentos compartidos
+
+            </div>
+
+        </section>
+              <!-- Botones -->
+
+        <section class="acciones">
+
+            <button id="subirFotos">
+
+                📸 Compartir un recuerdo
+
+            </button>
+
+            <button id="verAlbum">
+
+                🖼️ Ver álbum
+
+            </button>
+
+        </section>
+
+        <!-- Últimas fotografías -->
+
+        <section class="galeriaPortada">
+
+            <h3>
+
+                Algunos momentos compartidos
+
+            </h3>
+
+            <p class="subtituloGaleria">
+
+                Cada fotografía cuenta una parte de nuestra historia.
+
+            </p>
+
+            <div id="ultimasFotos">
+
+            </div>
+
+        </section>
+
+        <!-- Pie -->
+
+        <footer class="footer">
+
+            <div class="lineaFooter"></div>
+
+            <p>
+
+                Gracias por ayudarnos a crear recuerdos inolvidables.
+
+            </p>
+
+            <strong>
+
+                Ángel & Silvia ❤️
+
+            </strong>
+
+        </footer>
+
+    </main>
+
+    <!-- Ventana de agradecimiento -->
+
+    <div id="mensajeExito" class="oculto">
+
+        <div class="mensajeCaja">
+
+            <div class="mensajeCorazon">
+
+                🤍
+
+            </div>
+
+            <h2>
+
+                ¡Muchísimas gracias!
+
+            </h2>
+
+            <p>
+
+                Tu fotografía ya forma parte de nuestro álbum.
+
+            </p>
+
+            <br>
+
+            <p>
+
+                Gracias por ayudarnos a conservar este día para siempre.
+
+            </p>
+
+        </div>
+
+    </div>
+        <!-- Scripts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="app.js"></script>
 
 </body>
+
 </html>
