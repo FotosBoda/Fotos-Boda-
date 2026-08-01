@@ -32,3 +32,6 @@ document.getElementById("subirFotos").addEventListener("click", async () => {
     input.click();
 
 });
+document.getElementById("verAlbum").addEventListener("click", () => {
+    window.location.href = "album.html";
+});
