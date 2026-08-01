@@ -63,6 +63,7 @@ img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
 }
 
 cargarFotos();
+setInterval(cargarFotos, 10000);
 document.getElementById("cerrar").onclick = () => {
 
     document.getElementById("visor").classList.add("oculto");
