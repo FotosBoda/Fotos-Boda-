@@ -88,7 +88,24 @@ if(modoSeleccion){
             marca.classList.add("seleccionada");
 
         }
+const barra = document.getElementById("barraSeleccion");
+const contador = document.getElementById("cantidadSeleccionadas");
 
+contador.textContent =
+    fotosSeleccionadas.length +
+    (fotosSeleccionadas.length == 1
+        ? " foto seleccionada"
+        : " fotos seleccionadas");
+
+if(fotosSeleccionadas.length > 0){
+
+    barra.classList.remove("oculto");
+
+}else{
+
+    barra.classList.add("oculto");
+
+}
     };
 
     contenedor.appendChild(marca);
