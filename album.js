@@ -146,3 +146,34 @@ document.getElementById("cerrar").onclick = () => {
     document.getElementById("visor").classList.add("oculto");
 
 };
+document.getElementById("descargarSeleccionadas").onclick = async () => {
+
+    for(const nombre of fotosSeleccionadas){
+
+        const { data:url } = cliente.storage
+            .from("fotos-boda")
+            .getPublicUrl(nombre);
+
+        const respuesta = await fetch(url.publicUrl);
+
+        const blob = await respuesta.blob();
+
+        const enlace = document.createElement("a");
+
+        enlace.href = URL.createObjectURL(blob);
+
+        enlace.download = nombre;
+
+        document.body.appendChild(enlace);
+
+        enlace.click();
+
+        enlace.remove();
+
+        URL.revokeObjectURL(enlace.href);
+
+        await new Promise(r => setTimeout(r,300));
+
+    }
+
+};
