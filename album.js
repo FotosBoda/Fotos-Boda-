@@ -32,8 +32,17 @@ img.onclick = () => {
     document.getElementById("visor").classList.remove("oculto");
 
     document.getElementById("imagenGrande").src = url.publicUrl;
-document.getElementById("descargar").href = url.publicUrl;
+const botonDescargar = document.getElementById("descargar");
+
+botonDescargar.onclick = () => {
+
+    const enlace = document.createElement("a");
+    enlace.href = url.publicUrl;
+    enlace.download = foto.name;
+    enlace.click();
+
 };
+    
 img.src = url.publicUrl;
 img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
 
