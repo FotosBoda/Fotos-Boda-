@@ -1,7 +1,7 @@
 const SUPABASE_URL = "https://vizujiwztwdydalzjben.supabase.co";
 const SUPABASE_KEY = "sb_publishable_YDn4e0TJNmKGF1FugH5ROA_IYIvDeEP";
 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 document.getElementById("subirFotos").addEventListener("click", async () => {
 
@@ -16,7 +16,7 @@ document.getElementById("subirFotos").addEventListener("click", async () => {
 
         const nombreArchivo = Date.now() + "_" + archivo.name;
 
-        const { error } = await supabase.storage
+        const { error } = await cliente.storage
             .from("Fotos boda Angel y Silvia")
             .upload(nombreArchivo, archivo);
 
