@@ -18,7 +18,9 @@ async function cargarFotos(){
 const contador = document.getElementById("contador");
     galeria.innerHTML="";
 contador.textContent = `📷 ${data.length} fotos compartidas`;
-    data.reverse().forEach(foto => {
+    data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+data.forEach(foto => {
 
         const { data:url } = cliente.storage
             .from("fotos-boda")
