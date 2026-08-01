@@ -34,13 +34,20 @@ img.onclick = () => {
     document.getElementById("imagenGrande").src = url.publicUrl;
 const botonDescargar = document.getElementById("descargar");
 
-botonDescargar.onclick = () => {
+botonDescargar.onclick = async () => {
+
+    const respuesta = await fetch(url.publicUrl);
+    const blob = await respuesta.blob();
 
     const enlace = document.createElement("a");
-    enlace.href = url.publicUrl;
+    enlace.href = URL.createObjectURL(blob);
     enlace.download = foto.name;
-    enlace.click();
 
+    document.body.appendChild(enlace);
+    enlace.click();
+    enlace.remove();
+
+    URL.revokeObjectURL(enlace.href);
 };
     
 img.src = url.publicUrl;
