@@ -32,7 +32,7 @@ img.onclick = () => {
     document.getElementById("visor").classList.remove("oculto");
 
     document.getElementById("imagenGrande").src = url.publicUrl;
-
+document.getElementById("descargar").href = url.publicUrl;
 };
 img.src = url.publicUrl;
 img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
