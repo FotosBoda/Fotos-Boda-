@@ -17,8 +17,10 @@
     height:100%;
     background:rgba(0,0,0,.92);
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
+    gap:20px;
     z-index:999;
 }
 
@@ -92,10 +94,8 @@
             transform:scale(1.03);
         }
 #acciones{
-    position:absolute;
-    bottom:30px;
-    left:50%;
-    transform:translateX(-50%);
+    position:static;
+    transform:none;
 }
 
 #descargar{
