@@ -26,7 +26,8 @@ data.forEach(foto => {
         const { data:url } = cliente.storage
             .from("fotos-boda")
             .getPublicUrl(foto.name);
-
+const contenedor = document.createElement("div");
+contenedor.className = "foto";
         const img=document.createElement("img");
 
        console.log(url.publicUrl);
@@ -57,7 +58,21 @@ botonDescargar.onclick = async () => {
 img.src = url.publicUrl;
 img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
 
-        galeria.appendChild(img);
+       contenedor.appendChild(img);
+
+if(modoSeleccion){
+
+    const marca = document.createElement("div");
+
+    marca.className = "marca";
+
+    marca.textContent = "○";
+
+    contenedor.appendChild(marca);
+
+}
+
+galeria.appendChild(contenedor);
 
     });
 
