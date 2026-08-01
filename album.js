@@ -6,7 +6,7 @@ const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 async function cargarFotos(){
 
     const { data, error } = await cliente.storage
-        .from("Fotos boda Angel y Silvia")
+        .from("fotos-boda")
         .list();
 
     if(error){
@@ -21,7 +21,7 @@ async function cargarFotos(){
     data.forEach(foto=>{
 
         const { data:url } = cliente.storage
-            .from("Fotos boda Angel y Silvia")
+            .from("fotos-boda")
             .getPublicUrl(foto.name);
 
         const img=document.createElement("img");
