@@ -26,7 +26,9 @@ async function cargarFotos(){
 
         const img=document.createElement("img");
 
-        img.src=url.publicUrl;
+       console.log(url.publicUrl);
+
+img.src = url.publicUrl;
 
         galeria.appendChild(img);
 
