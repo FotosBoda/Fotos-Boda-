@@ -189,6 +189,57 @@ background:#435348;
     color:white;
 
 }
+        #barraSeleccion{
+
+position:fixed;
+
+bottom:20px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:white;
+
+padding:15px 25px;
+
+border-radius:40px;
+
+box-shadow:0 5px 20px rgba(0,0,0,.25);
+
+display:flex;
+
+gap:20px;
+
+align-items:center;
+
+z-index:998;
+
+}
+
+#descargarSeleccionadas{
+
+background:#566b5f;
+
+color:white;
+
+border:none;
+
+padding:12px 20px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+#descargarSeleccionadas:hover{
+
+background:#435348;
+
+}
     </style>
 
 </head>
@@ -204,7 +255,15 @@ background:#435348;
 </button>
 
 <div id="galeria"></div>
+<div id="barraSeleccion" class="oculto">
 
+    <span id="cantidadSeleccionadas">0 fotos seleccionadas</span>
+
+    <button id="descargarSeleccionadas">
+        ⬇ Descargar seleccionadas
+    </button>
+
+</div>
 <div id="visor" class="oculto">
 
     <span id="cerrar">✕</span>
