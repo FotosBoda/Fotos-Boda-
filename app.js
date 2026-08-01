@@ -2,43 +2,59 @@ const SUPABASE_URL = "https://vizujiwztwdydalzjben.supabase.co";
 const SUPABASE_KEY = "sb_publishable_YDn4e0TJNmKGF1FugH5ROA_IYIvDeEP";
 
 const cliente = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-async function cargarPortada(){
+
+// ==========================
+// CARGAR PORTADA
+// ==========================
+
+async function cargarPortada() {
 
     const contador = document.getElementById("numeroMomentos");
-
     const ultimas = document.getElementById("ultimasFotos");
 
-    if(!contador || !ultimas) return;
+    if (!contador || !ultimas) return;
 
-    const { data } = await supabase.storage
+    const { data, error } = await cliente.storage
         .from("fotos-boda")
-        .list("",{
-            limit:6,
-            sortBy:{
-                column:"created_at",
-                order:"desc"
+        .list("", {
+            limit: 1000,
+            sortBy: {
+                column: "created_at",
+                order: "desc"
             }
         });
 
+    if (error) {
+        console.error(error);
+        return;
+    }
+
+    // Contador
     contador.textContent = data.length;
 
-    ultimas.innerHTML="";
+    // Últimas fotos
+    ultimas.innerHTML = "";
 
-    data.forEach(foto=>{
+    data.slice(0, 6).forEach(foto => {
 
-        const { data:url } = supabase.storage
+        const { data: url } = cliente.storage
             .from("fotos-boda")
             .getPublicUrl(foto.name);
 
-        const img=document.createElement("img");
-
-        img.src=url.publicUrl;
+        const img = document.createElement("img");
+        img.src = url.publicUrl;
+        img.loading = "lazy";
 
         ultimas.appendChild(img);
 
     });
 
 }
+
+// ==========================
+// SUBIR FOTOS
+// ==========================
+
 document.getElementById("subirFotos").addEventListener("click", async () => {
 
     const input = document.createElement("input");
@@ -62,13 +78,28 @@ document.getElementById("subirFotos").addEventListener("click", async () => {
             return;
         }
 
-        alert("✅ Foto subida correctamente");
+        alert("✅ ¡Muchas gracias por compartir este momento con nosotros!");
+
+        cargarPortada();
+
     };
 
     input.click();
 
 });
+
+// ==========================
+// VER ÁLBUM
+// ==========================
+
 document.getElementById("verAlbum").addEventListener("click", () => {
-    cargarPortada();
+
     window.location.href = "album.html";
+
 });
+
+// ==========================
+// INICIAR
+// ==========================
+
+cargarPortada();
