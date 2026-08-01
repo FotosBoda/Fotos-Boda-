@@ -17,7 +17,7 @@ document.getElementById("subirFotos").addEventListener("click", async () => {
         const nombreArchivo = Date.now() + "_" + archivo.name;
 
         const { error } = await cliente.storage
-            .from("Fotos boda Angel y Silvia")
+            .from("fotos-boda")
             .upload(nombreArchivo, archivo);
 
         if (error) {
