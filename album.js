@@ -18,7 +18,7 @@ async function cargarFotos(){
 const contador = document.getElementById("contador");
     galeria.innerHTML="";
 contador.textContent = `📷 ${data.length} fotos compartidas`;
-    data.forEach(foto=>{
+    data.reverse().forEach(foto => {
 
         const { data:url } = cliente.storage
             .from("fotos-boda")
