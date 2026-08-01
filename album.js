@@ -29,6 +29,7 @@ async function cargarFotos(){
        console.log(url.publicUrl);
 
 img.src = url.publicUrl;
+img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
 
         galeria.appendChild(img);
 
