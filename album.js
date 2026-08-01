@@ -15,7 +15,7 @@ async function cargarFotos(){
     }
 
     const galeria = document.getElementById("galeria");
-
+const contador = document.getElementById("contador");
     galeria.innerHTML="";
 
     data.forEach(foto=>{
