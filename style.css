@@ -1,113 +1,249 @@
-body{
+*{
     margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    background:#F8F8F5;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Inter',sans-serif;
+    background:#f8f6f2;
+    min-height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
+
+    color:#566b5f;
+
+    overflow-x:hidden;
 }
 
+/* Fondo con patitas muy sutiles */
+
+body::before{
+
+    content:"🐾";
+
+    position:fixed;
+
+    inset:0;
+
+    font-size:70px;
+
+    opacity:.035;
+
+    line-height:220px;
+    letter-spacing:90px;
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+/* Tarjeta principal */
+
 .contenedor{
-    width:90%;
-    max-width:500px;
+
+    width:min(92%,520px);
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:45px 30px;
+
     text-align:center;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.08);
+
+    animation:aparecer .8s ease;
+
+}
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
 }
 
 h1{
-    font-size:48px;
-    color:#556B5D;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:60px;
+
+    color:#566b5f;
+
     margin-bottom:5px;
+
 }
 
 .fecha{
-    color:#777;
-    margin-bottom:40px;
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+    color:#7d8f82;
+
+    margin-bottom:30px;
+
 }
 
-p{
-    font-size:20px;
-    color:#555;
-    margin-bottom:40px;
+.bienvenida{
+
+    line-height:1.8;
+
+    color:#666;
+
+    margin-bottom:35px;
+
+}
+
+.tarjetaContador{
+
+    background:#f4f3ee;
+
+    border-radius:22px;
+
+    padding:22px;
+
+    margin-bottom:35px;
+
+}
+
+.numeroMomentos{
+
+    font-size:48px;
+
+    font-weight:700;
+
+    color:#566b5f;
+
+}
+
+.textoMomentos{
+
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:16px;
+
 }
 
 button{
+
     width:100%;
-    padding:18px;
-    margin-bottom:15px;
+
     border:none;
-    border-radius:12px;
-    background:#A8B8A5;
+
+    background:#566b5f;
+
     color:white;
-    font-size:20px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    font-size:18px;
+
     cursor:pointer;
-    transition:.3s;
+
+    margin-bottom:15px;
+
+    transition:.25s;
+
 }
 
 button:hover{
-    background:#91A18F;
+
+    transform:translateY(-2px);
+
+    background:#44544a;
+
+}
+
+button:active{
+
+    transform:scale(.98);
+
+}
+
+h3{
+
+    margin-top:35px;
+
+    margin-bottom:18px;
+
+    font-family:'Cormorant Garamond',serif;
+
+    font-size:28px;
+
+}
+
+/* Aquí meteremos las últimas fotos */
+
+#ultimasFotos{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:8px;
+
+    margin-bottom:35px;
+
+}
+
+#ultimasFotos img{
+
+    width:100%;
+
+    aspect-ratio:1;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
 }
 
 .footer{
-    margin-top:40px;
-    color:#999;
-}
-#visor{
 
-position:fixed;
+    color:#888;
 
-top:0;
+    font-size:14px;
 
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:rgba(0,0,0,.92);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-z-index:999;
+    line-height:1.7;
 
 }
 
-.oculto{
+@media(max-width:500px){
 
-display:none !important;
+    h1{
 
-}
+        font-size:50px;
 
-#imagenGrande{
+    }
 
-max-width:90%;
+    .contenedor{
 
-max-height:90%;
+        padding:35px 22px;
 
-border-radius:15px;
-
-box-shadow:0 0 30px rgba(255,255,255,.2);
-
-}
-
-#cerrar{
-
-position:absolute;
-
-top:30px;
-
-right:40px;
-
-font-size:45px;
-
-color:white;
-
-cursor:pointer;
-
-user-select:none;
+    }
 
 }
