@@ -27,7 +27,13 @@ async function cargarFotos(){
         const img=document.createElement("img");
 
        console.log(url.publicUrl);
+img.onclick = () => {
 
+    document.getElementById("visor").classList.remove("oculto");
+
+    document.getElementById("imagenGrande").src = url.publicUrl;
+
+};
 img.src = url.publicUrl;
 img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
 
@@ -38,3 +44,8 @@ img.onerror = () => console.log("ERROR AL CARGAR:", url.publicUrl);
 }
 
 cargarFotos();
+document.getElementById("cerrar").onclick = () => {
+
+    document.getElementById("visor").classList.add("oculto");
+
+};
