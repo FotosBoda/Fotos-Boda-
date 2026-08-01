@@ -1,94 +1,176 @@
+/* ===================================================
+   ÁNGEL & SILVIA - STYLE V2
+   =================================================== */
+
+/* RESET */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+:root{
+
+    --verde:#566b5f;
+    --verde-hover:#435348;
+    --fondo:#f8f6f2;
+    --tarjeta:#ffffff;
+    --gris:#707070;
+    --gris-claro:#a7a7a7;
+    --sombra:0 20px 60px rgba(0,0,0,.08);
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 body{
 
     font-family:'Inter',sans-serif;
-    background:#f8f6f2;
+
+    background:linear-gradient(180deg,#fbfaf7 0%,#f4f2ec 100%);
+
+    color:var(--verde);
+
     min-height:100vh;
 
     display:flex;
+
     justify-content:center;
+
     align-items:center;
 
-    color:#566b5f;
-
     overflow-x:hidden;
+
+    position:relative;
+
 }
 
-/* Fondo con patitas muy sutiles */
+
+/* ===================================================
+   FONDO
+   =================================================== */
 
 body::before{
 
-    content:"🐾";
+    content:"";
 
     position:fixed;
 
     inset:0;
 
-    font-size:70px;
-
-    opacity:.035;
-
-    line-height:220px;
-    letter-spacing:90px;
-
     pointer-events:none;
 
-    z-index:-1;
+    opacity:.05;
+
+    background-image:
+
+    radial-gradient(circle at 12% 15%, rgba(86,107,95,.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 82% 20%, rgba(86,107,95,.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 25% 70%, rgba(86,107,95,.08) 0 2px, transparent 3px),
+    radial-gradient(circle at 75% 82%, rgba(86,107,95,.08) 0 2px, transparent 3px);
+
+    z-index:-2;
 
 }
 
-/* Tarjeta principal */
+
+/* Sombra decorativa */
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:900px;
+
+    height:900px;
+
+    border-radius:50%;
+
+    background:radial-gradient(circle,
+    rgba(86,107,95,.05),
+    transparent 70%);
+
+    top:-450px;
+
+    right:-450px;
+
+    z-index:-3;
+
+}
+
+
+/* ===================================================
+   TARJETA PRINCIPAL
+   =================================================== */
 
 .contenedor{
 
-    width:min(92%,520px);
+    width:min(92%,540px);
 
-    background:white;
+    background:var(--tarjeta);
 
-    border-radius:30px;
+    border-radius:34px;
 
-    padding:45px 30px;
+    padding:55px 38px;
 
     text-align:center;
 
-    box-shadow:0 20px 60px rgba(0,0,0,.08);
+    box-shadow:var(--sombra);
 
-    animation:aparecer .8s ease;
+    border:1px solid rgba(86,107,95,.06);
+
+    animation:entrada .8s ease;
 
 }
 
-@keyframes aparecer{
+
+/* Animación */
+
+@keyframes entrada{
 
     from{
 
         opacity:0;
-        transform:translateY(20px);
+
+        transform:translateY(30px);
 
     }
 
     to{
 
         opacity:1;
+
         transform:translateY(0);
 
     }
 
 }
 
+
+/* ===================================================
+   TITULOS
+   =================================================== */
+
 h1{
 
     font-family:'Cormorant Garamond',serif;
 
-    font-size:60px;
+    font-size:64px;
 
-    color:#566b5f;
+    font-weight:600;
 
-    margin-bottom:5px;
+    color:var(--verde);
+
+    margin-bottom:8px;
+
+    letter-spacing:.5px;
 
 }
 
@@ -96,55 +178,77 @@ h1{
 
     font-size:18px;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
 
-    color:#7d8f82;
+    color:#829285;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
+
+    text-transform:uppercase;
 
 }
 
 .bienvenida{
 
-    line-height:1.8;
-
     color:#666;
 
-    margin-bottom:35px;
+    line-height:1.9;
+
+    font-size:16px;
+
+    margin-bottom:38px;
 
 }
 
+
+/* ===================================================
+   TARJETA CONTADOR
+   =================================================== */
+
 .tarjetaContador{
 
-    background:#f4f3ee;
+    background:#faf9f6;
 
-    border-radius:22px;
+    border:1px solid rgba(86,107,95,.08);
 
-    padding:22px;
+    border-radius:26px;
+
+    padding:28px;
 
     margin-bottom:35px;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.04);
 
 }
 
 .numeroMomentos{
 
-    font-size:48px;
+    font-size:58px;
 
     font-weight:700;
 
-    color:#566b5f;
+    color:var(--verde);
+
+    line-height:1;
 
 }
 
 .textoMomentos{
 
-    margin-top:8px;
+    margin-top:10px;
 
     color:#777;
 
-    font-size:16px;
+    font-size:17px;
+
+    letter-spacing:.5px;
 
 }
+/* ===================================================
+   BOTONES
+   =================================================== */
 
 button{
 
@@ -152,29 +256,37 @@ button{
 
     border:none;
 
-    background:#566b5f;
-
-    color:white;
+    border-radius:18px;
 
     padding:18px;
 
-    border-radius:18px;
-
     font-size:18px;
+
+    font-weight:500;
 
     cursor:pointer;
 
+    transition:.30s;
+
     margin-bottom:15px;
 
-    transition:.25s;
+    background:var(--verde);
+
+    color:white;
+
+    box-shadow:
+    0 10px 25px rgba(86,107,95,.20);
 
 }
 
 button:hover{
 
-    transform:translateY(-2px);
+    background:var(--verde-hover);
 
-    background:#44544a;
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 18px 35px rgba(86,107,95,.25);
 
 }
 
@@ -184,19 +296,63 @@ button:active{
 
 }
 
+
+/* Separación entre botones */
+
+#subirFotos{
+
+    margin-top:10px;
+
+}
+
+#verAlbum{
+
+    margin-bottom:40px;
+
+}
+
+
+/* ===================================================
+   TÍTULO GALERÍA
+   =================================================== */
+
 h3{
-
-    margin-top:35px;
-
-    margin-bottom:18px;
 
     font-family:'Cormorant Garamond',serif;
 
-    font-size:28px;
+    font-size:32px;
+
+    font-weight:600;
+
+    color:var(--verde);
+
+    margin-bottom:8px;
 
 }
 
-/* Aquí meteremos las últimas fotos */
+
+/* Subtítulo */
+
+h3::after{
+
+    content:"";
+
+    display:block;
+
+    width:70px;
+
+    height:2px;
+
+    background:rgba(86,107,95,.15);
+
+    margin:15px auto 25px auto;
+
+}
+
+
+/* ===================================================
+   GALERÍA PORTADA
+   =================================================== */
 
 #ultimasFotos{
 
@@ -204,9 +360,9 @@ h3{
 
     grid-template-columns:repeat(3,1fr);
 
-    gap:8px;
+    gap:12px;
 
-    margin-bottom:35px;
+    margin-bottom:45px;
 
 }
 
@@ -218,68 +374,286 @@ h3{
 
     object-fit:cover;
 
-    border-radius:12px;
-
-}
-
-.footer{
-
-    color:#888;
-
-    font-size:14px;
-
-    line-height:1.7;
-
-}
-
-@media(max-width:500px){
-
-    h1{
-
-        font-size:50px;
-
-    }
-
-    .contenedor{
-
-        padding:35px 22px;
-
-    }
-/* Últimos momentos */
-
-#ultimasFotos{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:10px;
-
-    margin-bottom:35px;
-
-}
-
-#ultimasFotos img{
-
-    width:100%;
-
-    aspect-ratio:1;
-
-    object-fit:cover;
-
-    border-radius:14px;
-
-    transition:.25s;
+    border-radius:16px;
 
     cursor:pointer;
 
-    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    transition:.35s;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.08);
 
 }
 
 #ultimasFotos img:hover{
 
-    transform:scale(1.05);
+    transform:
+
+        translateY(-4px)
+
+        scale(1.04);
+
+    box-shadow:
+
+    0 18px 35px rgba(0,0,0,.15);
 
 }
+
+
+/* ===================================================
+   FOOTER
+   =================================================== */
+
+.footer{
+
+    color:#8c8c8c;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+    margin-top:20px;
+
+}
+
+
+/* Línea decorativa */
+
+.footer::before{
+
+    content:"";
+
+    display:block;
+
+    width:90px;
+
+    height:1px;
+
+    background:rgba(86,107,95,.15);
+
+    margin:0 auto 22px auto;
+
+}
+/* ===================================================
+   EFECTOS Y ANIMACIONES
+   =================================================== */
+
+.tarjetaContador{
+
+    transition:.35s;
+
+}
+
+.tarjetaContador:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.08);
+
+}
+
+#ultimasFotos img{
+
+    animation:aparecerFoto .6s ease both;
+
+}
+
+@keyframes aparecerFoto{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.95);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* ===================================================
+   SCROLL
+   =================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:rgba(86,107,95,.30);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:rgba(86,107,95,.50);
+
+}
+
+
+/* ===================================================
+   SELECCIÓN DE TEXTO
+   =================================================== */
+
+::selection{
+
+    background:#566b5f;
+
+    color:white;
+
+}
+
+
+/* ===================================================
+   RESPONSIVE
+   =================================================== */
+
+@media(max-width:700px){
+
+    .contenedor{
+
+        width:94%;
+
+        padding:42px 24px;
+
+        border-radius:28px;
+
+    }
+
+    h1{
+
+        font-size:52px;
+
+    }
+
+    .fecha{
+
+        font-size:15px;
+
+        letter-spacing:2px;
+
+    }
+
+    .bienvenida{
+
+        font-size:15px;
+
+        line-height:1.8;
+
+    }
+
+    .numeroMomentos{
+
+        font-size:48px;
+
+    }
+
+    .textoMomentos{
+
+        font-size:15px;
+
+    }
+
+    button{
+
+        font-size:17px;
+
+        padding:16px;
+
+    }
+
+    h3{
+
+        font-size:28px;
+
+    }
+
+    #ultimasFotos{
+
+        gap:8px;
+
+    }
+
+}
+
+
+@media(max-width:430px){
+
+    h1{
+
+        font-size:46px;
+
+    }
+
+    .contenedor{
+
+        padding:35px 20px;
+
+    }
+
+    #ultimasFotos{
+
+        grid-template-columns:repeat(3,1fr);
+
+        gap:7px;
+
+    }
+
+}
+
+
+/* ===================================================
+   PREPARADO PARA VERSIONES FUTURAS
+   =================================================== */
+
+/* Tarjetas */
+
+.card{
+
+    background:white;
+
+    border-radius:24px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.06);
+
+}
+
+/* Botones secundarios */
+
+.botonSecundario{
+
+    background:white;
+
+    color:var(--verde);
+
+    border:1px solid rgba(86,107,95,.15);
+
+}
+
+.botonSecundario:hover{
+
+    background:#f6f6f6;
+
+}
+
+/* Ocultar elementos */
+
+.oculto{
+
+    display:none !important;
+
 }
